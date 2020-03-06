@@ -1,0 +1,13 @@
+version: "3.3"
+
+services:
+  cadvisor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        CADVISOR_VERSION: ${CADVISOR_VERSION:-0.36.0}
+    image: serbgost/cadvisor-arm:${CADVISOR_VERSION:-0.36.0}
+    container_name: cadvisor-arm
+    ports:
+      - 8080:8080
